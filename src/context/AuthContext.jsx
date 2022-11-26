@@ -1,37 +1,19 @@
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
-import {set, ref } from "firebase/database";
-import { database } from "../firebaseConfig";
+import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { auth } from '../firebaseConfig'
+import { Navigate} from "react-router-dom"
 
 
-const auth = getAuth();
-createUserWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
+
+export function createUser  (email, password) {
+    
+      return createUserWithEmailAndPassword(auth, email, password).then((userInfo) => {
         // Signed in 
-        const user = userCredential.user;
-        set(ref(database, 'users/' + user.uid), {
-                username: username,
-                email: email,
-            })
-            // ...
-    })
-    .catch((error) => {
-        const errorCode = error.code;
+        const user = userInfo.user;
+        console.log(user)
+        Navigate('/login')
+      })
+      .catch((error) => {
         const errorMessage = error.message;
-        // ..
-    });
-
-signInWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
-        const user = userCredential.user;
-    })
-    .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-    })
-onAuthStateChanged(auth, (user) => {
-    if (user) {
-        uid = user.uid
-    } else {
-        //The user is signed out.
-    }
-})
+     console.log("Error:"+errorMessage)
+      });
+};
