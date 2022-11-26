@@ -16,7 +16,7 @@ const Navbar = () => {
   return (
     <div className='w-full absolute top-0 left-0 h-[60px] px-4 flex justify-between items-center'>
       <Link to='/' className='h-full flex items-center z-50'>
-          <p className='text-xl font-[600] lg:text-white'>agribid</p>
+          <p className='text-xl font-[600] lg:text-white'>Agribid</p>
           <RiPlantFill className='ml-1 text-green-600 text-2xl' />          
       </Link>
 
