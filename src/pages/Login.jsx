@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 const Login = () => {
   return (
     <div>
-       <div className='place-content-center p-10'>
+       <div className='place-content-center p-8'>
 
 <div
   class="container max-w-md mx-auto xl:max-w-3xl h-full flex bg-white rounded-lg shadow overflow-hidden "

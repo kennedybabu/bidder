@@ -1,7 +1,6 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
 @import url('https://fonts.googleapis.com/css2?family=Hachi+Maru+Pop&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Hachi+Maru+Pop&family=Poppins:wght@100;300;600&display=swap');
 
@@ -36,3 +35,4 @@ body {
     outline: none;
     border: none;
 }
+
