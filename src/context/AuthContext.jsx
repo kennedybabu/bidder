@@ -1,13 +1,16 @@
-import { createUserWithEmailAndPassword,signInWithEmailAndPassword } from 'firebase/auth';
+import { createUserWithEmailAndPassword,signInWithEmailAndPassword, updateProfile } from 'firebase/auth';
 import { auth } from '../firebaseConfig'
 import { Navigate} from "react-router-dom"
 
 
 
-export async function createUser(email, password) {
+export async function createUser(email, username, password) {
     
   try {
-    const userInfo = await createUserWithEmailAndPassword(auth, email, password);
+    const userInfo = await createUserWithEmailAndPassword(auth, email, username, password);
+    updateProfile(auth.currentUser, {
+      displayName: username
+    })
     const user = userInfo.user;
     console.log(user);
     Navigate('/login');
