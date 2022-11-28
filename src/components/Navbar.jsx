@@ -26,7 +26,7 @@ const Navbar = () => {
       <NavLink to='/login' style={({ isActive }) => isActive ? activeStyle : undefined} className='mx-2 underline underline-offset-4'>Login</NavLink>
           <NavLink to='/' style={({ isActive }) => isActive ? activeStyle : undefined} className='mx-2 underline underline-offset-4'>Home</NavLink>
           <NavLink to='/products-list' style={({ isActive }) => isActive ? activeStyle : undefined} className='mx-2 underline-offset-4'>Products</NavLink>
-          <NavLink  style={({ isActive }) => isActive ? activeStyle : undefined} className='mx-2 underline-offset-4'>Account</NavLink>
+          <NavLink to="/account" style={({ isActive }) => isActive ? activeStyle : undefined} className='mx-2 underline-offset-4'>Account</NavLink>
 
       </div>
 
