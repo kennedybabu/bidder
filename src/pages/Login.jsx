@@ -1,7 +1,22 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React,{ useRef} from 'react'
+import { loginUser } from '../context/AuthContext'
 
 const Login = () => {
+ const emailRef = useRef()
+ const passwordRef = useRef()
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    const email = emailRef.current.value;
+    const password = passwordRef.current.value
+    console.log(email,password)
+    try{
+      return loginUser(email,password)
+    } catch (error) {
+      alert(error.message)
+    }
+
+}
   return (
     <div>
        <div className='place-content-center p-8'>
@@ -17,7 +32,7 @@ const Login = () => {
     />
   </div>
   <div class="w-full xl:w-3/4 p-4">
-    <form method="post" action="#" onSubmit="return false">
+    <form onSubmit={handleSubmit} method="post" action="#" >
       <h1 class=" text-2xl font-bold">Sign in to your account</h1>
       <div>
         <span class="text-gray-600 text-sm">
@@ -38,6 +53,7 @@ const Login = () => {
           class="text-sm appearance-none rounded w-full py-2 px-3 text-gray-700 bg-gray-200 leading-tight focus:outline-none focus:shadow-outline h-10"
           id="email"
           type="text"
+          ref={emailRef}
           placeholder="Your email address"
         />
       </div>
@@ -52,6 +68,7 @@ const Login = () => {
           class="text-sm bg-gray-200 appearance-none rounded w-full py-2 px-3 text-gray-700 mb-1 leading-tight focus:outline-none focus:shadow-outline h-10"
           id="password"
           type="password"
+          ref={passwordRef}
           placeholder="Your password"
         />
         <a
@@ -64,7 +81,7 @@ const Login = () => {
       <div class="flex w-full mt-8">
         <button
           class="w-full bg-gray-800 hover:bg-grey-900 text-white text-sm py-2 px-4 font-semibold rounded focus:outline-none focus:shadow-outline h-10"
-          type="button"
+          type="submit"
         >
           Sign in
         </button>
