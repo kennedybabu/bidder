@@ -15,7 +15,7 @@ const Signup = () => {
         const password = passwordRef.current.value
         console.log(email,username,password)
         try{
-          return createUser(email,password)
+          return createUser(email,username,password)
         } catch (error) {
           alert(error.message)
         }
